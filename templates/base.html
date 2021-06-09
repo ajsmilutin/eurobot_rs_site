@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %} {% block ng-app %}{% endblock %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+
+    <link rel="shortcut icon" href="{% static "img/favicon.png" %}">
+
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+
+
+    {% ifinstalled mezzanine.blog %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+{##}
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+{#        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+        {% endif %}
+        {% ifinstalled cartridge.shop %}
+            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+            {% if LANGUAGE_BIDI %}
+                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+            {% endif %}
+        {% endifinstalled %}
+        {% block extra_css %}{% endblock %}
+    {% endcompress %}
+
+    {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "js/bootstrap-extras.js" %}"></script>
+        {% block extra_js %}{% endblock %}
+    {% endcompress %}
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,500' rel='stylesheet' type='text/css'>
+
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Academicons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="{% static 'css/simple-line-icons.css' %}">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/modernizr-2.6.2.min.js'%}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{% static 'js/respond.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+
+<div id="fh5co-header" role="banner">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset">
+                    <div class="navbar-header">
+                        <!-- Mobile Toggle Menu Button -->
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle visible-xs-block" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                        <a class="navbar-brand" href="/">{% block header_text %}{% trans 'EUROBOT Serbia' %}{% endblock %}</a>
+
+                    </div>
+{#                    <div id="fh5co-navbar" class="navbar-collapse collapse">#}
+{#                        <ul class="nav navbar-nav navbar-right">#}
+{#                            <li class="active"><a href="index.html"><span>Home <span class="border"></span></span></a></li>#}
+{#                            <li><a href="right-sidebar.html"><span>Bio <span class="border"></span></span></a></li>#}
+{#                            <li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+                     <div id="fh5co-navbar" class="navbar-collapse collapse">{% page_menu "header/pages.html" %}</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+{##}
+{#<div class="navbar navbar-default navbar-fixed-top" role="navigation">#}
+{#    <div class="container">#}
+{#        <div class="navbar-header">#}
+{#            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
+{#                <span class="sr-only">{% trans "Toggle Navigation" %}</span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#            </button>#}
+{#            {% block navbar_title %}#}
+{#                {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}#}
+{#                {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>#}
+{#                {% endif %}#}
+{#            {% endblock %}#}
+{#        </div>#}
+{#        <div class="navbar-collapse collapse">#}
+{#            {% block navbar_search_form %}{% search_form "all" %}{% endblock %}#}
+{#            {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+<div class="container">
+
+    {% nevercache %}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endnevercache %}
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-10 middle">
+            <h1>{% block title %}{% endblock %}</h1>
+        </div>
+    </div>
+
+
+{#    <ul class="breadcrumb">#}
+{#        {% spaceless %}#}
+{#            {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}#}
+{#        {% endspaceless %}#}
+{#    </ul>#}
+
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2 left">
+            {% block left_panel %}
+                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+            {% endblock %}
+        </div>
+
+        <div class="col-md-10 middle">
+            {% block main %}{% endblock %}
+        </div>
+
+{#        <div class="col-md-3 right">#}
+{#            {% nevercache %}#}
+{#                {% include "includes/language_selector.html" %}#}
+{#                {% include "includes/user_panel.html" %}#}
+{#            {% endnevercache %}#}
+{#            <div class="panel panel-default">#}
+{#                <div class="panel-body">#}
+{#                    {% block right_panel %}#}
+{#                        {% ifinstalled mezzanine.twitter %}#}
+{#                            {% include "twitter/tweets.html" %}#}
+{#                        {% endifinstalled %}#}
+{#                    {% endblock %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        {% page_menu "pages/menus/footer.html" %}
+
+        <div class="row">
+            <p class="site-info text-center">
+                {% trans "Powered by" %}
+                <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
+                <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
+                {% trans "and" %}
+                <a href="http://www.djangoproject.com">Django</a>
+                <span class="separator">|</span>
+                {% trans "Theme by" %} <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>
+                {% ifinstalled mezzanine.mobile %}
+                    <span class="separator">|</span>
+                    <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
+                {% endifinstalled %}
+            </p>
+        </div>
+    </div>
+</footer>
+
+{% block footer_js %}
+    {% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
+{% load i18n %}
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+{% block title %}{{ tournament.name }}{% endblock %}
+
+{% block main %}
+{% load pages_tags %}
+
+{% editable page.tournamentstandings.content %}
+{{ page.tournamentstandings.content|richtext_filters|safe }}
+{% endeditable %}
+
+{% if first_place or third_place or second_place %}
+<h1>{% trans 'Final Standings' %}</h1>
+<table class="table">
+{% if first_place %}
+<tr>
+	<td class="col-md-2">{% trans 'Champion' %}:</td>  
+	<td class="col-md-8"><h3>{{first_place.name}}, {{first_place.school}}, {{first_place.city}}</h3></td>
+</tr>
+{% endif %}
+
+{% if second_place %}
+<tr>
+	<td class="col-md-2">{% trans 'Second place' %}:</td>  
+	<td class="col-md-8"><h3>{{second_place.name}}, {{second_place.school}}, {{second_place.city}}</h3></td>
+</tr>
+{% endif %}
+{% if third_place %}
+<tr>	
+	<td>{% trans 'Third place' %}:</td>  
+	<td><h3>{{third_place.name}}, {{third_place.school}}, {{third_place.city}}</h3></td>
+</tr>
+{% endif %}
+</table>
+
+{% endif %}
+<h1>{% trans 'Standings' %}</h1>
+
+{% if rounds %}
+<table class="table">
+	<tr>
+		<th>{% trans 'Rank' %}</th>		
+		<th>{% trans 'Name' %}</th>		
+		<th>{% trans 'School' %}</th>	
+		{% for round in rounds %}
+			<th>{{ round.name }}</th>
+		{% endfor %}	  
+		<th>{% trans 'Score' %}</th>
+	</tr>
+{% for row in players_info %}
+	<tr>
+		<td>{{ forloop.counter }}</td>		
+		<td class="player">{{ row.player.name }}</td>
+		
+		<td>{{ row.player.school }}</td>
+		{% for game in row.games %}
+			{% if game.game.player_id == row.player.id %}
+			{% if game.game.player_color == 'W' %}
+			<td style="background-color:rgb(173, 208, 228)">
+			{% else %}
+			<td style="background-color:rgb(226, 223, 182)">
+			{% endif %}	
+				{% if game.game.status != 'planned' %}
+			  		<div class="score">{{ game.game.player_score }}</div>
+			  	{% endif %}
+			  <div class="opponent">{{ game.opponent }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
+			</td>
+			{% endif %}
+			{% if game.game.opponent_id == row.player.id %}
+			{% if game.game.opponent_color == 'W' %}
+			<td style="background-color:rgb(173, 208, 228)">
+			{% else %}
+			<td style="background-color:rgb(226, 223, 182)">
+			{% endif %}	
+				{% if game.game.status != 'planned' %}
+			  		<div class="score">{{ game.game.opponent_score }}</div>
+			  	{% endif %}
+			  <div class="opponent">{{ game.player }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
+			  
+			</td>
+			{% endif %}
+		{% endfor %}	  
+		<td class="score">{{ row.score }}</td>
+	</tr>
+{% endfor %}
+</table>
+{% else %}
+	<h2>{% trans 'No rounds have been setup.' %}</h2>
+{% endif %}
+
+{% endblock %}

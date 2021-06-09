@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
+{% load i18n %}
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    
+{% endmetablock %}{% endblock %}
+
+{% block main %}
+
+{% load pages_tags %}
+{% for page in page_branch %}
+    {% if page.is_current_child %}
+    <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+    {% endif %}
+    {% if page.is_current_or_ascendant %}
+        {% if page.has_children_in_menu %}{% page_menu page %}{% endif %}
+    {% endif %}
+{% endfor %}
+
+{% editable page.tournamentinfo.content %}
+{{ page.tournamentinfo.content|richtext_filters|safe }}
+{% endeditable %}
+
+
+<h1>{% trans 'Details' %}</h1>
+<table class="table">
+  <tr>
+    <th>{% trans 'Place' %}</th>
+    <td>{{ tournament.city }}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'Start' %}</th>
+    <td>{{ tournament.start_date | date:"j. F, Y."}}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'End' %}</th>
+    <td>{{ tournament.end_date | date:"j. F, Y." }}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'Teams' %}</th>
+    <td>{{ tournament.players.count }}</td>
+  </tr>
+</table>
+
+<h1>{% trans 'Teams' %}</h1>
+<table class="table">
+	<tr>	  
+	  <th>{% trans 'Name' %}</th>
+	  <th>{% trans 'School' %}</th>
+	  <th>{% trans 'City' %}</th>
+	  <th>{% trans 'Homologated' %}</th>
+	</tr>
+	{% for player in players %}
+	<tr>
+	  <td>{{ player.name }}</td>
+    <td>{{ player.school }}</td>
+    <td>{{ player.city }}</td>
+    {% if player.dynamic_homologation == True %}
+    <td class="success">{% trans 'YES' %}</td>
+    {% elif player.static_homologation == True %}
+    <td class="warning">{% trans 'MEASURED' %}</td>
+    {% else %}
+    <td class="danger">{% trans 'NO' %}</td>
+    {% endif %}	  
+	</tr>
+	{% endfor %}
+</table>
+
+
+{% endblock %}

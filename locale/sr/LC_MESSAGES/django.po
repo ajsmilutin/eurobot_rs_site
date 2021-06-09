@@ -1,0 +1,524 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-09 01:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: eurobot/settings.py:116
+msgid "Serbian"
+msgstr "Српски"
+
+#: templates/base.html:88
+#, fuzzy
+#| msgid "EUROBOT"
+msgid "EUROBOT Serbia"
+msgstr "ЕУРОБОТ Србија"
+
+#: templates/base.html:195
+msgid "Powered by"
+msgstr "Направљено помоћу"
+
+#: templates/base.html:198
+msgid "and"
+msgstr "и"
+
+#: templates/base.html:201
+msgid "Theme by"
+msgstr "Тема од"
+
+#: templates/base.html:204
+msgid "View Mobile Site"
+msgstr "Погледај сајт за телефон"
+
+#: templates/blog/blog_post_detail.html:29
+#: templates/blog/blog_post_list.html:85
+msgid "Posted by"
+msgstr "Објавио"
+
+#: templates/blog/blog_post_detail.html:33
+#: templates/blog/blog_post_list.html:97
+#: templates/generic/includes/comment.html:22
+#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:19
+#, python-format
+msgid "%(sometime)s ago"
+msgstr "пре %(sometime)s"
+
+#: templates/blog/blog_post_detail.html:43
+#: templates/blog/blog_post_list.html:136
+#: templates/generic/includes/comments.html:3
+msgid "Comments"
+msgstr "Коментари"
+
+#: templates/blog/blog_post_detail.html:46
+#: templates/blog/blog_post_list.html:140
+#, python-format
+msgid "%(comments_count)s comment"
+msgid_plural "%(comments_count)s comments"
+msgstr[0] "%(comments_count)s коментар"
+msgstr[1] "%(comments_count)s коментари"
+
+#: templates/blog/blog_post_detail.html:74
+#: templates/blog/blog_post_list.html:121
+#: templates/blog/includes/filter_panel.html:56
+msgid "Tags"
+msgstr "Тагови"
+
+#: templates/blog/blog_post_detail.html:85
+msgid "Share on Twitter"
+msgstr "Подели на Твитеру"
+
+#: templates/blog/blog_post_detail.html:86
+msgid "Share on Facebook"
+msgstr "Подели на Фејсбуку"
+
+#: templates/blog/blog_post_detail.html:111
+msgid "Related posts"
+msgstr "Сличне објаве"
+
+#: templates/blog/blog_post_list.html:4 templates/blog/blog_post_list.html:22
+msgid "Blog"
+msgstr "Блог"
+
+#: templates/blog/blog_post_list.html:31
+msgid "Tag:"
+msgstr "Таг:"
+
+#: templates/blog/blog_post_list.html:33
+msgid "Category:"
+msgstr "Категорија"
+
+#: templates/blog/blog_post_list.html:37
+msgid "Author:"
+msgstr "Аутор:"
+
+#: templates/blog/blog_post_list.html:50
+msgid "Viewing posts tagged"
+msgstr "Преглед објава са тагом"
+
+#: templates/blog/blog_post_list.html:52
+msgid "Viewing posts for the category"
+msgstr "Преглед објава за категорију"
+
+#: templates/blog/blog_post_list.html:54
+msgid "Viewing posts from"
+msgstr "Преглед објава од"
+
+#: templates/blog/blog_post_list.html:57
+msgid "Viewing posts by"
+msgstr "Преглед објава од"
+
+#: templates/blog/blog_post_list.html:91
+msgid "in"
+msgstr "у"
+
+#: templates/blog/blog_post_list.html:130 templates/search_results.html:47
+msgid "read more"
+msgstr "читај више"
+
+#: templates/blog/includes/filter_panel.html:6
+msgid "Recent Posts"
+msgstr "Последње објаве"
+
+#: templates/blog/includes/filter_panel.html:27
+msgid "Archive"
+msgstr "Архива"
+
+#: templates/blog/includes/filter_panel.html:43
+msgid "Categories"
+msgstr "Категорије"
+
+#: templates/blog/includes/filter_panel.html:72
+msgid "Authors"
+msgstr "Аутори"
+
+#: templates/blog/includes/filter_panel.html:84
+msgid "Feeds"
+msgstr "Поруке"
+
+#: templates/blog/includes/filter_panel.html:86
+#: templates/blog/includes/filter_panel.html:90
+#: templates/blog/includes/filter_panel.html:94
+#: templates/blog/includes/filter_panel.html:98
+msgid "RSS"
+msgstr "РСС"
+
+#: templates/blog/includes/filter_panel.html:87
+#: templates/blog/includes/filter_panel.html:91
+#: templates/blog/includes/filter_panel.html:95
+#: templates/blog/includes/filter_panel.html:99
+msgid "Atom"
+msgstr "Атом"
+
+#: templates/email/comment_notification.html:6
+msgid "A new comment has been posted on"
+msgstr "Нови коментар је постављен на"
+
+#: templates/email/comment_notification.html:10
+#, python-format
+msgid ""
+"\n"
+"    At %(submit_date)s %(user_name)s wrote:\n"
+"    "
+msgstr ""
+"\n"
+"    На %(submit_date)s %(user_name)s је написао:\n"
+"    "
+
+#: templates/email/comment_notification.txt:7
+#, python-format
+msgid ""
+"\n"
+"At %(submit_date)s %(user_name)s wrote:\n"
+msgstr ""
+"\n"
+"На %(submit_date)s %(user_name)s је написао:\n"
+
+#: templates/errors/404.html:6 templates/errors/404.html:10
+#: templates/errors/404.html:15
+msgid "Page not found"
+msgstr "Страница није пронађена"
+
+#: templates/errors/404.html:16
+msgid "The page you requested does not exist."
+msgstr "Страница коју тражите не постоји"
+
+#: templates/errors/500.html:6 templates/errors/500.html:10
+#: templates/errors/500.html:15
+msgid "Error"
+msgstr "Грешка"
+
+#: templates/errors/500.html:16
+msgid "Sorry, an error occurred."
+msgstr "Дошло је до грешке"
+
+#: templates/generic/includes/comment.html:30
+msgid "Link"
+msgstr "Линк"
+
+#: templates/generic/includes/comment.html:33
+#: templates/generic/includes/comment.html:49
+msgid "Reply"
+msgstr "Одговори"
+
+#: templates/generic/includes/comment.html:55
+msgid "Comment deleted"
+msgstr "Коментар је обрисан"
+
+#: templates/generic/includes/comment.html:57
+msgid "Comment awaiting approval"
+msgstr "Коментар чека одобрење"
+
+#: templates/generic/includes/comment.html:71
+msgid "There are currently no comments"
+msgstr "Тренутно нема коментара"
+
+#: templates/generic/includes/comments.html:17
+msgid "New Comment"
+msgstr "Нови коментар"
+
+#: templates/generic/includes/comments.html:25
+msgid "Comment"
+msgstr "Коментар"
+
+#: templates/generic/includes/rating.html:5
+msgid "Current rating"
+msgstr "Тренутни рејтинг"
+
+#: templates/generic/includes/rating.html:7
+msgid "Currently unrated"
+msgstr "Тренутно без рејтинга"
+
+#: templates/generic/includes/rating.html:17
+msgid "Rate"
+msgstr "Оцени"
+
+#: templates/includes/editable_form.html:16
+msgid "Save"
+msgstr "Сачувај"
+
+#: templates/includes/editable_form.html:17
+msgid "Cancel"
+msgstr "Поништи"
+
+#: templates/includes/editable_form.html:25
+msgid "Edit"
+msgstr "Измени"
+
+#: templates/includes/editable_toolbar.html:8
+msgid "Admin"
+msgstr "Админ"
+
+#: templates/includes/editable_toolbar.html:9
+msgid "Log out"
+msgstr "Излогуј се"
+
+#: templates/includes/form_errors.html:8
+msgid "Please correct the errors below."
+msgstr "Молим Вас исправите наведене грешке"
+
+#: templates/includes/language_selector.html:19
+msgid "Change"
+msgstr "Промени"
+
+#: templates/includes/pagination.html:7
+msgid "Page"
+msgstr "Страна"
+
+#: templates/includes/pagination.html:7
+msgid "of"
+msgstr "од"
+
+#: templates/includes/search_form.html:5
+msgid "Search"
+msgstr "Претрага"
+
+#: templates/includes/search_form.html:14
+msgid "Everything"
+msgstr "Све"
+
+#: templates/includes/search_form.html:26
+msgid "Go"
+msgstr "Иди"
+
+#: templates/index.html:4 templates/index.html:5 templates/index.html:8
+#: templates/pages/menus/breadcrumb.html:4
+#: templates/pages/menus/breadcrumb.html:10
+#: templates/pages/menus/dropdown.html:10
+#: templates/pages/menus/footer_tree.html:11
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/search_results.html:13
+msgid "Home"
+msgstr "Почетак"
+
+#: templates/index.html:12
+msgid ""
+"\n"
+"<h2>Congratulations!</h2>\n"
+"<p>\n"
+"    Welcome to your new Mezzanine powered website.\n"
+"    Here are some quick links to get you started:\n"
+"</p>\n"
+"<ul>\n"
+"    <li><a href=\"/admin/\">Log in to the admin interface</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/content-architecture.html"
+"\">Creating custom page types</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/frequently-asked-questions."
+"html#templates\">Modifying HTML templates</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/frequently-asked-questions."
+"html#why-isn-t-the-homepage-a-page-object-i-can-edit-via-the-admin"
+"\">Changing this homepage</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/frequently-asked-questions."
+"html\">Other frequently asked questions</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/configuration.html#default-"
+"settings\">Full list of settings</a></li>\n"
+"    <li><a href=\"http://mezzanine.jupo.org/docs/deployment.html\">Deploying "
+"to a production server</a></li>\n"
+"</ul>\n"
+msgstr ""
+
+#: templates/pages/form.html:24
+msgid "Submit"
+msgstr "Пошаљи"
+
+#: templates/pages/menus/admin.html:31
+msgid "Add"
+msgstr "Додај"
+
+#: templates/pages/menus/tree.html:9
+msgid "Bio"
+msgstr "Биографија"
+
+#: templates/search_results.html:5 templates/search_results.html:6
+#: templates/search_results.html:15
+msgid "Search Results"
+msgstr "Резултати претраге"
+
+#: templates/search_results.html:22
+#, python-format
+msgid ""
+"\n"
+"No results were found in %(search_type)s matching your query: %(query)s\n"
+msgstr ""
+"\n"
+"Ни је било резулатата при претрази %(search_type)s који одговарају Вашем "
+"захтеву: %(query)s\n"
+
+#: templates/search_results.html:26
+#, python-format
+msgid ""
+"\n"
+"Showing %(start)s to %(end)s of %(total)s results in %(search_type)s "
+"matching your query: %(query)s\n"
+msgstr ""
+"\n"
+"Приказујемо %(start)s до %(end)s од  %(total)s ретултата у %(search_type)s "
+"који одговарају Вашем захтеву: %(query)s\n"
+
+#: templates/twitter/tweets.html:7
+msgid "Recent Tweets"
+msgstr "Последњи твитови"
+
+#: tournaments/modeladmins/tournament.py:38
+#, fuzzy
+#| msgid "Rounds"
+msgid "Round"
+msgstr "Рунде"
+
+#: tournaments/modeladmins/tournament.py:41
+#: tournaments/templates/pages/tournamentrounds.html:7
+msgid "Rounds"
+msgstr "Рунде"
+
+#: tournaments/models.py:52
+msgid "planned"
+msgstr "планиран"
+
+#: tournaments/models.py:52
+msgid "Planned"
+msgstr "Планиран"
+
+#: tournaments/models.py:53
+msgid "finished"
+msgstr "завршен"
+
+#: tournaments/models.py:53
+msgid "Finished"
+msgstr "Завршен"
+
+#: tournaments/templates/pages/tournamentinfo.html:4
+#: tournaments/templates/pages/tournamentrounds.html:5
+#: tournaments/templates/pages/tournamentstandings.html:4
+msgid "EUROBOT"
+msgstr "ЕУРОБОТ"
+
+#: tournaments/templates/pages/tournamentinfo.html:36
+msgid "Details"
+msgstr "Детаљи"
+
+#: tournaments/templates/pages/tournamentinfo.html:39
+msgid "Place"
+msgstr "Место"
+
+#: tournaments/templates/pages/tournamentinfo.html:43
+msgid "Start"
+msgstr "Почетак"
+
+#: tournaments/templates/pages/tournamentinfo.html:47
+msgid "End"
+msgstr "Крај"
+
+#: tournaments/templates/pages/tournamentinfo.html:51
+#: tournaments/templates/pages/tournamentinfo.html:56
+#: tournaments/templates/pages/tournamentrounds.html:22
+msgid "Teams"
+msgstr "Тимови"
+
+#: tournaments/templates/pages/tournamentinfo.html:59
+#: tournaments/templates/pages/tournamentrounds.html:84
+#: tournaments/templates/pages/tournamentrounds.html:86
+#: tournaments/templates/pages/tournamentstandings.html:46
+msgid "Name"
+msgstr "Име"
+
+#: tournaments/templates/pages/tournamentinfo.html:60
+#: tournaments/templates/pages/tournamentstandings.html:47
+msgid "School"
+msgstr "Факултет"
+
+#: tournaments/templates/pages/tournamentinfo.html:61
+msgid "City"
+msgstr "Град"
+
+#: tournaments/templates/pages/tournamentinfo.html:62
+msgid "Homologated"
+msgstr "Хомологизован"
+
+#: tournaments/templates/pages/tournamentinfo.html:70
+msgid "YES"
+msgstr "ДА"
+
+#: tournaments/templates/pages/tournamentinfo.html:72
+msgid "MEASURED"
+msgstr "ИЗМЕРЕН"
+
+#: tournaments/templates/pages/tournamentinfo.html:74
+msgid "NO"
+msgstr "НЕ"
+
+#: tournaments/templates/pages/tournamentrounds.html:17
+msgid "Elimination rounds"
+msgstr "Елиминационе рунде"
+
+#: tournaments/templates/pages/tournamentrounds.html:23
+msgid "G1"
+msgstr "М1"
+
+#: tournaments/templates/pages/tournamentrounds.html:24
+msgid "G2"
+msgstr "М2"
+
+#: tournaments/templates/pages/tournamentrounds.html:25
+msgid "G3"
+msgstr "М3"
+
+#: tournaments/templates/pages/tournamentrounds.html:85
+#: tournaments/templates/pages/tournamentstandings.html:51
+msgid "Score"
+msgstr "Резултат"
+
+#: tournaments/templates/pages/tournamentrounds.html:87
+msgid "Status"
+msgstr "Статус"
+
+#: tournaments/templates/pages/tournamentrounds.html:92
+#: tournaments/templates/pages/tournamentrounds.html:98
+#: tournaments/templates/pages/tournamentrounds.html:100
+#: tournaments/templates/pages/tournamentrounds.html:106
+#: tournaments/templates/pages/tournamentstandings.html:69
+#: tournaments/templates/pages/tournamentstandings.html:81
+msgid "Dummy"
+msgstr "Без поена"
+
+#: tournaments/templates/pages/tournamentrounds.html:115
+#: tournaments/templates/pages/tournamentstandings.html:91
+msgid "No rounds have been setup."
+msgstr "Рунде још нису креиране"
+
+#: tournaments/templates/pages/tournamentstandings.html:16
+msgid "Final Standings"
+msgstr "Коначни резултати"
+
+#: tournaments/templates/pages/tournamentstandings.html:20
+msgid "Champion"
+msgstr "Шампион"
+
+#: tournaments/templates/pages/tournamentstandings.html:27
+msgid "Second place"
+msgstr "Друго место"
+
+#: tournaments/templates/pages/tournamentstandings.html:33
+msgid "Third place"
+msgstr "Треће место"
+
+#: tournaments/templates/pages/tournamentstandings.html:40
+msgid "Standings"
+msgstr "Резултати"
+
+#: tournaments/templates/pages/tournamentstandings.html:45
+msgid "Rank"
+msgstr "Ранг"
