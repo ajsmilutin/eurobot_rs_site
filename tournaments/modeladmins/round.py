@@ -26,7 +26,7 @@ class GameInLineFormAdmin(forms.ModelForm):
                 'name')
             self.fields['opponent'].queryset = game.round.tournament.players.order_by(
                 'name')
-        elif initial and initial.has_key('tournament'):
+        elif initial and 'tournament' in initial:
             self.fields['player'].queryset = initial['tournament'].players.order_by(
                 'name')
             self.fields['opponent'].queryset = initial['tournament'].players.order_by(
@@ -39,7 +39,7 @@ class GameInLineFormAdmin(forms.ModelForm):
         # Check players
         player = cleaned_data.get("player")
         opponent = cleaned_data.get(
-            "opponent") if cleaned_data.has_key("opponent") else None
+            "opponent") if 'opponent' in cleaned_data else None
         if player == opponent:
             self._errors["opponent"] = self.error_class(
                 [u'Player cannot play with oneself'])
@@ -96,14 +96,13 @@ class GameInLineFormAdmin(forms.ModelForm):
 class GameInline(admin.TabularInline):
     model = Game
     form = GameInLineFormAdmin
-    extra = 1
+    extra = 0
 
     def get_formset(self, request, obj=None, **kwargs):        
         formset = super(GameInline, self).get_formset(request, obj, **kwargs)
 
         initial = []
-
-        if request.method == "GET" and obj is None and request.GET.has_key('tournament'):
+        if request.method == "GET" and obj is None and 'tournament' in request.GET.dict():
             tournament = Tournament.objects.get(pk=request.GET['tournament'])
 
             if tournament.round_set.count() == 0:

@@ -26,9 +26,9 @@
   </tr>
   <tr>	
     {% if elimination.player_wins %}
-    <td><b><i>{{ elimination.player }}</i></b></td>
+    <td><b><i>{{ elimination.player|safe }}</i></b></td>
     {% else %}
-    <td>{{ elimination.player }}</td>
+    <td>{{ elimination.player|safe }}</td>
     {% endif %}
     {% if elimination.player_score_0 > elimination.opponent_score_0 %}
     <td style="background-color:rgb(173, 208, 228)"><b><i>{{ elimination.player_score_0 }}</i></b></td>
@@ -51,9 +51,9 @@
   </tr>
   <tr>	
     {% if elimination.opponent_wins %}
-    <td><b><i>{{ elimination.opponent }}</i></b></td>
+    <td><b><i>{{ elimination.opponent|safe }}</i></b></td>
     {% else %}
-    <td>{{ elimination.opponent }}</td>
+    <td>{{ elimination.opponent|safe }}</td>
     {% endif %}
     {% if elimination.player_score_0 < elimination.opponent_score_0 %}
     <td style="background-color:rgb(226, 223, 182)"><b><i>{{ elimination.opponent_score_0 }}</i></b></td>
@@ -89,21 +89,21 @@
 	{% for game in round_info.games %}
 		  <tr>
 		  	{% if game.game.player_color == 'W' %}		  	
-			    <td class="col-md-4"  style="background-color:rgb(173, 208, 228)">{{ game.player }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
+			    <td class="col-md-4"  style="background-color:rgb(173, 208, 228)">{{ game.player|safe }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
 			    {% if game.game.status == 'planned' %}
 			    	<td class="col-md-2">-</td>
 			    {% else %}
 			    	<td class="col-md-2">{{ game.game.player_score }} : {{ game.game.opponent_score }}</td>
 			    {% endif %}
-			    <td class="col-md-4" style="background-color:rgb(226, 223, 182)">{{ game.opponent }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>			    
+			    <td class="col-md-4" style="background-color:rgb(226, 223, 182)">{{ game.opponent|safe  }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>			    
 		    {% else %}			    
-			    <td class="col-md-4" style="background-color:rgb(173, 208, 228)">{{ game.opponent }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
+			    <td class="col-md-4" style="background-color:rgb(173, 208, 228)">{{ game.opponent|safe  }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
 			    {% if game.game.status == 'planned' %}
 			    	<td class="col-md-2">-</td>
 			    {% else %}
 			    	<td class="col-md-2">{{ game.game.opponent_score }} : {{ game.game.player_score }}</td>
 			    {% endif %}
-			    <td class="col-md-4" style="background-color:rgb(226, 223, 182)">{{ game.player }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
+			    <td class="col-md-4" style="background-color:rgb(226, 223, 182)">{{ game.player|safe }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</td>
           {% endif %}
           <td>{% trans game.game.status|capfirst %}</td>
 		  </tr>

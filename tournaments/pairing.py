@@ -49,7 +49,7 @@ class Pairing:
         
         # A.3
         brackets = {}
-        for player_name, info in self.player_info.iteritems():
+        for player_name, info in self.player_info.items():
             if info['score'] not in brackets:
                 brackets[info['score']] = []
             brackets[info['score']].append(self.find_player_by_name(player_name))
@@ -72,7 +72,7 @@ class Pairing:
         
     def pair_first_round(self):
         sorted_players = self.order_players(self.players)
-        S1count = len(self.players) / 2
+        S1count = int(len(self.players) / 2)
         for index in range(S1count):
             self.pairs.append([sorted_players[index], sorted_players[S1count+index]])
         index = random.randrange(len(sorted_players)-1)            
@@ -97,7 +97,7 @@ class Pairing:
             print (group)                
             downfloaters = []
             for player in group:
-                if player.has_key('pair') and player['pair']:
+                if 'pair' in player and player['pair']:
                     continue
                 
                 opponents = self.find_possible_opponents(player, group)
@@ -110,13 +110,13 @@ class Pairing:
                     player['downfloater'] = True
                     downfloaters.append(player)
                 elif len(opponents) == 1:
-                    if player.has_key('downfloater') and player['downfloater']:
+                    if 'downfloater' in player and player['downfloater']:
                         opponents[0]['upfloater'] = True
                     playerW, playerB = self.return_with_color_preferences(player, opponents[0])
                     self.pairs.append([playerW, playerB])
                     playerW['pair'] = True
                     playerB['pair'] = True
-                elif len(opponents) > 1 and player.has_key('downfloater') and player['downfloater']:
+                elif len(opponents) > 1 and 'downfloater' in player and player['downfloater']:
                     sorted_players = self.order_players(opponents)
                     sorted_players[0]['upfloater'] = True
                     playerW, playerB = self.return_with_color_preferences(player, sorted_players[0])
@@ -125,10 +125,10 @@ class Pairing:
                     playerB['pair'] = True
                     pass
                     
-            without_opponents = [pl for pl in group if not pl.has_key('pair') or pl['pair'] is False]            
+            without_opponents = [pl for pl in group if not 'pair' in pl or pl['pair'] is False]
             if len(without_opponents) >= 2:
                 self.pair_group_with_transposition(without_opponents)
-                without_opponents = [pl for pl in group if not pl.has_key('pair') or pl['pair'] is False]
+                without_opponents = [pl for pl in group if not 'pair' in pl or pl['pair'] is False]
                 if len(without_opponents) == 1:
                     without_opponents[0]['downfloater'] = True
                     downfloaters.append(without_opponents[0])
@@ -140,8 +140,8 @@ class Pairing:
     # D 1.1 Homogenius transposition
     def pair_group_with_transposition(self, group):
         sorted_players = self.order_players(group)
-        S1count = len(sorted_players) / 2
-        S2count = len(sorted_players) - S1count
+        S1count = int(len(sorted_players) / 2)
+        S2count = int(len(sorted_players) - S1count)
         S1 = sorted_players[:S1count]
         S2 = sorted_players[S1count:]
 
@@ -213,7 +213,7 @@ class Pairing:
         info = self.player_info[current_player['name']]
         rest = [player for player in group if current_player != player]
         rest = [player for player in rest if player not in info['opponents']]   # B.1
-        rest = [player for player in rest if not player.has_key('pair') or player['pair'] is False]
+        rest = [player for player in rest if not 'pair' in player or player['pair'] is False]
         if len(rest) == 0:
             return []
         

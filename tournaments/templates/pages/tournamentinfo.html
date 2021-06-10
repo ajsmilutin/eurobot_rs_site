@@ -62,7 +62,7 @@
 	</tr>
 	{% for player in players %}
 	<tr>
-	  <td>{{ player.name }}</td>
+	  <td>{{ player.name|safe }}</td>
     <td>{{ player.school }}</td>
     <td>{{ player.city }}</td>
     {% if player.dynamic_homologation == True %}

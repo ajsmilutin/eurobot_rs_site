@@ -17,20 +17,20 @@
 {% if first_place %}
 <tr>
 	<td class="col-md-2">{% trans 'Champion' %}:</td>  
-	<td class="col-md-8"><h3>{{first_place.name}}, {{first_place.school}}, {{first_place.city}}</h3></td>
+	<td class="col-md-8"><h3>{{first_place.name|safe}}, {{first_place.school}}, {{first_place.city}}</h3></td>
 </tr>
 {% endif %}
 
 {% if second_place %}
 <tr>
 	<td class="col-md-2">{% trans 'Second place' %}:</td>  
-	<td class="col-md-8"><h3>{{second_place.name}}, {{second_place.school}}, {{second_place.city}}</h3></td>
+	<td class="col-md-8"><h3>{{second_place.name|safe}}, {{second_place.school}}, {{second_place.city}}</h3></td>
 </tr>
 {% endif %}
 {% if third_place %}
 <tr>	
 	<td>{% trans 'Third place' %}:</td>  
-	<td><h3>{{third_place.name}}, {{third_place.school}}, {{third_place.city}}</h3></td>
+	<td><h3>{{third_place.name|safe}}, {{third_place.school}}, {{third_place.city}}</h3></td>
 </tr>
 {% endif %}
 </table>
@@ -52,7 +52,7 @@
 {% for row in players_info %}
 	<tr>
 		<td>{{ forloop.counter }}</td>		
-		<td class="player">{{ row.player.name }}</td>
+		<td class="player">{{ row.player.name|safe }}</td>
 		
 		<td>{{ row.player.school }}</td>
 		{% for game in row.games %}
@@ -65,7 +65,7 @@
 				{% if game.game.status != 'planned' %}
 			  		<div class="score">{{ game.game.player_score }}</div>
 			  	{% endif %}
-			  <div class="opponent">{{ game.opponent }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
+			  <div class="opponent">{{ game.opponent|safe }}{% if game.game.opponent_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
 			</td>
 			{% endif %}
 			{% if game.game.opponent_id == row.player.id %}
@@ -77,7 +77,7 @@
 				{% if game.game.status != 'planned' %}
 			  		<div class="score">{{ game.game.opponent_score }}</div>
 			  	{% endif %}
-			  <div class="opponent">{{ game.player }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
+			  <div class="opponent">{{ game.player|safe }}{% if game.game.player_dummy  %} - {% trans 'Dummy' %}{% endif %}</div>
 			  
 			</td>
 			{% endif %}
